@@ -1,0 +1,8 @@
+<div class="whitebg cloud">
+    <h2 class="htitle">标签云</h2>
+    <ul>
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            <a href="{{ "/tags/" | absLangURL }}{{ $name | urlize }}/" target="_blank">{{ $name }}<span class="layui-badge layui-bg-gray">{{len $taxonomy}}</span></a>
+        {{ end }}
+    </ul>
+</div>

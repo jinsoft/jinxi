@@ -1,0 +1,164 @@
+{{ partial "head" . }}
+<body>
+{{ partial "header" . }}
+
+<div id="body">
+        {{ if .Site.Params.toc -}}
+        <!--悬浮目录-->
+        <div id="virtual_toc_list" style="display: none">
+            {{.TableOfContents}}
+        </div>
+        <div id="float_toc_div" style="margin: 10px;border: 1px solid #12b7de;z-index:99999;display: block;">
+            <div style="background-color: #f3f3f3;color: black;border-bottom: 1px solid #12b7de;padding: 10px 10px 10px 10px;">
+                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
+                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
+            </div>
+            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
+        
+            </div>
+        </div>
+        <style type="text/css">
+            #float_toc_div {
+                position: fixed;
+                display: none;
+                /* width: 10.6%; */
+                height: auto;
+                font-size: 13px;
+            }
+        
+            #toc_list a:hover,
+            #toc_list a:active {
+                color: #ba3925;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                let tocNavElem = document.getElementById("TableOfContents");
+                let floatTocDivElem = document.getElementById("float_toc_div");
+                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
+                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
+                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 3 - 80;
+                var useFloatToc = false;
+
+                if (floatTocWidth >= 100) {
+                    useFloatToc = true;
+                    document.getElementById("toc_list").appendChild(tocNavElem);
+                    floatTocDivElem.style.display = 'block';
+                    floatTocDivElem.style.width = floatTocWidth + 'px';
+                    top();
+                    floatTocDivElem.style.left = '80px';
+
+                    function top() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
+                        }
+                    }
+
+                    function ishide() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.display = 'block';
+                        }
+                    }
+
+                    window.onscroll = function () {
+                        ishide();
+                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
+                            top();
+                        }
+                    };
+
+                    window.onresize = function () {
+                        ishide();
+                    }
+
+                    document.getElementById("toc_btn_open").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "none":
+                                document.getElementById("toc_btn_close").style.display = "";
+                                tocListElem.style.display = "";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+
+                    document.getElementById("toc_btn_close").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "":
+                                document.getElementById("toc_btn_close").style.display = "none";
+                                tocListElem.style.display = "none";
+                                floatTocDivElem.getElementsByTagName("div")[0].style.borderBottom = "";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+                } else {
+                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
+                    if(typeof(fixedTocElem) != 'undefined'){
+                        fixedTocElem.appendChild(tocNavElem);
+                        fixedTocElem.parentElement.style.display = "";
+                    }
+                }
+                document.getElementById("virtual_toc_list").remove();
+            };   
+        </script>
+        {{- end }}
+    <article>
+        <div class="lbox col-group">
+            <div class="content_box whitebg">
+                <h1 class="con_tilte">{{ .Title }}</h1>
+                <p class="bloginfo">
+                    <i class="avatar"><img src=" {{ "images/avatar.jpg" | relURL }}" alt=""></i>
+                    <span>ainiok</span>
+                    <span>{{ .Date.Year }}-{{ printf "%d" .Date.Month }}-{{ .Date.Day }}</span>
+                    <span>
+                        {{ with .Params.Categories }}
+                                <span class="meta-category"><a href="{{ "/categories/" | absLangURL }}{{ . | urlize }}">【{{ . }}】</a></span>
+                        {{ end }}
+                    </span>
+                    {{ if .Site.Params.busuanzi }}
+                        <span><span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span>人已围观</span>
+                    {{end }}
+                </p>
+                <div class="con_text">
+                    {{ .Content }}
+                    <p></p>
+                    {{ partial "copyright" .}}
+
+                    <div class="nextinfo meta-tags">
+                        {{ if and (isset .Params "tags") .Params.tags }}
+                        <ul class="clearfix">
+                            {{ range .Params.Tags }}
+                            <li><a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+                            {{ end }}
+                        </ul>
+                        {{ else }}
+                        没有标签
+                        {{ end }}
+                    </div>
+                    {{ if .Params.toc }}
+                    <div class="clear" style="border:1px solid red">
+                        <div class="toc-article">
+                            <div class="toc-title">文章目录</div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ partial "related" . }}
+            {{ partial "comments" . }}
+        </div>
+        <div class="rbox">
+            {{ partial "sidebar" . }}
+        </div>
+    </article>
+</div>
+{{ partial "footer" . }}
+</body>
+</html>

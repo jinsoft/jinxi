@@ -1,0 +1,20 @@
+<header id="header">
+    <div class="navbox">
+        <h2 id="mnavh"><span class="navicon"></span></h2>
+        <div class="logo"><a href="/">个人博客</a></div>
+        <nav>
+            <ul id="starlist">
+                <li><a {{ if eq .Site.BaseURL $.RelPermalink }}id="selected"{{ end }} href="{{ .Site.BaseURL | absURL }}">首页</a></li>
+                {{ range .Site.Menus.main }}
+                <li><a {{ if eq .URL $.RelPermalink }}id="selected"{{ end }} href="{{ .URL | absURL }}">{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        </nav>
+        <div class="searchicon"><i class="layui-icon layui-icon-search" style="font-size: 30px;"></i></div>
+    </div>
+</header>
+<div class="divide-wrap">
+    <div class="colorbar-before"></div>
+    <div class="colorbar-after"></div>
+    <div class="colorbar"></div>
+</div>

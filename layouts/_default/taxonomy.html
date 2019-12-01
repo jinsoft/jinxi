@@ -1,0 +1,47 @@
+{{ partial "head" . }}
+<body>
+{{ partial "header" . }}
+
+<article>
+    <div class="lbox">
+        <div class="whitebg bloglist">
+            <h2 class="ct-title">
+                {{ if eq .Data.Singular "category" }}
+                类别属于【<span class="keyword">{{ .Data.Term }}</span>】的文章
+                {{ else if eq .Data.Singular "tag" }}
+                包含标签<span class="keyword">{{ .Data.Term }}</span>的文章
+                {{ end }}
+            </h2>
+            <ul>
+                {{ range $index,$data := .Paginator.Pages }}
+                <li>
+                    <h3 class="blogtitle">
+                        <a href="{{ .Permalink }}" target="_blank" title="{{ .Title }}">{{ .Title }}</a>
+                    </h3>
+                    <p class="blogtext">{{ .Summary }}……</p>
+                    <p class="bloginfo">
+                        <span class="avatar"><img src="{{ " images/avatar.jpg" | relURL }}" alt=""></span>
+                        <span>ainiok</span>
+                        <span>{{ .Date.Year }}年{{ printf "%d" .Date.Month }}月{{ .Date.Day }}日</span>
+                        <span>
+                            {{ with .Params.Categories }}
+                            【<a href="{{ "/categories/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>】
+                            {{ end }}
+                        </span>
+                    </p>
+                    <a href="{{ .Permalink }}" class="viewmore">阅读更多</a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+
+        {{ partial "paginator" . }}
+    </div>
+    <div class="rbox">
+        {{ partial "sidebar" . }}
+    </div>
+</article>
+{{ partial "footer" . }}
+
+</body>
+</html>

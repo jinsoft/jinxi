@@ -1,0 +1,14 @@
+# theme.toml template for a Hugo theme
+
+name = "jinxi"
+license = "MIT"
+licenselink = ""
+description = "专门为hugo开发的一套响应式模板，简洁、大气，大道至简。"
+homepage = "https://github.com/jinsoft/jinxi"
+tags = ["maupassant"]
+features = ["Tag","Category","Menu","Recent Post","Archives"]
+min_version = "0.30"
+
+[author]
+  name = "奔跑吧代码"
+  homepage = "https://blog.ainiok.com"

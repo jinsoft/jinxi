@@ -1,0 +1,10 @@
+{{ if .IsPage }}
+<div class="whitebg notice">
+    <h2 class="htitle">最近更新</h2>
+    <ul>
+        {{ range first 5 (where (where .Site.Pages "Type" "in" (slice "post" "posts")) "Kind" "page") }}
+        <li><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}

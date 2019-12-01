@@ -1,0 +1,15 @@
+{{ with .Site.Params.ads }}
+<div class="whitebg">
+    <h2 class="htitle" style="color:red">福利派送</h2>
+    {{ range . }}
+    <section class="topnews imgscale">
+        <a href="{{ .url }}" target="_blank" title="{{ .title }}">
+            {{ if .img }}
+            <img src="{{ .img }}">
+            {{ end }}
+            <span>{{ .title }}</span>
+        </a>
+    </section>
+    {{ end }}
+</div>
+{{ end }}

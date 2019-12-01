@@ -1,0 +1,10 @@
+<div class="whitebg categories">
+    <h2 class="htitle">分类</h2>
+    <ul>
+        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+        <li>
+            <a href="{{ "/categories/" | absLangURL }}{{ $name | urlize }}/">{{ $name }}(<span style="color: orange;">{{len $taxonomy}}</span>)</a>
+        </li>
+        {{ end }}
+    </ul>
+</div>

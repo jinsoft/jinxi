@@ -1,0 +1,65 @@
+{{ if .Site.Params.tools }}
+<script type="text/javascript" src="{{ "js/tools.js" | relURL }}"></script>
+{{ end }}
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer>
+    <div class="box">
+        <div class="wxbox">
+            <ul>
+                <li><img src="{{ "images/wxgzh.jpg" | relURL }}"><span>微信公众号</span></li>
+<!--                <li><img src="images/wx.png"><span>我的微信</span></li>-->
+            </ul>
+        </div>
+        <div class="endnav">
+            <p><b>站点声明：</b></p>
+            <p>1、本博客内容来自作者原创和网络转载，发布内容均已测试。一千个人有一千种可能，错误之处在所难免</p>
+            <p>2、所有文章转载请保留链接</p>
+            <p>Copyright © {{ now.Format "2006" }} <a href="{{ .Site.BaseURL | absURL }}">{{ .Site.Title }}</a>
+                By <a href="https://github.com/jinsoft">{{ .Site.Author.name }}</a>
+                备案号：<a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16013046号</a>
+            </p>
+            <p>
+                <i class="layui-icon layui-icon-friends" style="color:#009E94;"></i><span class="busuanzi-value" id="busuanzi_value_site_uv">9999</span>
+                <i class="layui-icon layui-icon-log" style="color:#009E94;"></i><span class="busuanzi-value" id="busuanzi_value_site_pv">9999</span>
+            </p>
+        </div>
+    </div>
+</footer>
+{{ if .IsPage }}
+    <script type="text/javascript">
+        //添加行号
+        (function () {
+            $("pre code").addClass("layui-code")
+        }());
+    </script>
+{{ end }}
+{{ template "_internal/google_analytics_async.html" . }}
+
+<!-- custom js -->
+{{ range .Site.Params.customJS }}
+    <script src="{{ "/js/" | relURL }}{{ . }}"></script>
+{{ end }}
+<script src="{{ "layui/layui.js" | relURL }}"></script>
+<script type="text/javascript" src="{{ "js/common.js" | relURL}}"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        // 百度统计
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?83505973ce242d62c69cc54cfd408cfa";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+
+        // 百度资源
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>

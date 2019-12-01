@@ -1,0 +1,10 @@
+{{ with .Site.Params.links }}
+<div class="links whitebg">
+    <h2 class="htitle"></span>友情链接</h2>
+    <ul>
+        {{ range . }}
+        <li><a href="{{ .url }}" target="_blank" title="{{ .title }}">{{ .name }}</a></li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}
