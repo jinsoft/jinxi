@@ -1,5 +1,17 @@
 @charset "utf-8";
 /* css */
+::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    background-color: #12b7f5;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 93, 143, 1) 25%, transparent 25%, transparent 50%, rgba(255, 93, 143, 1) 50%, rgba(255, 93, 143, 1) 75%, transparent 75%, transparent);
+}
+::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: #f6f6f6;
+}
 * { margin: 0; padding: 0 }
 body { font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif; color: #333; background: #E9EAED; line-height: 1.5; overflow-x: hidden; }
 img { border: 0; display: block }
@@ -67,7 +79,7 @@ nav { float: left; height: 50px; line-height: 50px; text-align: center; }
 .fader .slide { position: absolute; width: 100%; top: 0; z-index: 1; opacity: 0; }
 .fader .slide img { width: 100%; height: 260px; margin: auto; }
 .fader .prev, .fader .next { position: absolute; height: 32px; line-height: 32px; width: 40px; top: 50%; left: 50px; z-index: 4; margin-top: -25px; cursor: pointer; opacity: 0; transition: all 150ms; }
-.fader .prev { background: url(../images/left.png) no-repeat }
+.fader .prev { background: url(./../images/left.png) no-repeat }
 .fader .next { left: auto; right: 50px; background: url(../images/right.png) no-repeat }
 .fader .pager_list { position: absolute; width: 100%; height: 26px; padding: 0; line-height: 40px; bottom: 0; text-align: center; z-index: 4; }
 .fader .pager_list li { border-radius: 10px; display: inline-block; width: 10px; height: 10px; margin: 0 7px; background: #fff; opacity: .9; text-indent: -9999px; cursor: pointer; transition: all 150ms; }
@@ -413,3 +425,16 @@ margin: auto }
 /* 标签和分类下的标题*/
 .ct-title { font-size: 16px; line-height: 40px; border-bottom: 1px solid #eee; color: #484848; font-weight: normal; position: relative; margin-bottom: 10px; }
 .ct-title .keyword {color:#FF8000}
+
+/* footer */
+.waveHorizontals{width:100%;height:20px;position:relative;overflow:hidden;z-index:1;background-color:#fff !important}
+.waveHorizontals{width:100%;height:20px;position:relative;overflow:hidden;z-index:1;background-color:#181616 !important}
+#waveHorizontal1{-webkit-mask:url(https://blog.ainiok.com/images/svg/augsc_01.svg);mask:url(https://blog.ainiok.com/images/svg/augsc_01.svg);animation-delay:-2s;animation-duration:12s;}
+#waveHorizontal1,#waveHorizontal2,#waveHorizontal3{background-image:linear-gradient(20deg,#f84270 0,#fe803b 100%)!important;}
+#waveHorizontal1{background-color:#f1f1f1!important;}
+#waveHorizontal2{background-color:#f1f1f1!important;}
+#waveHorizontal3{background-color:#f1f1f1!important;}
+.waveHorizontal{width:200%;height:100%;display:block;position:absolute;left:0;bottom:0;background-repeat:repeat-x;background-position:left bottom;background-size:350px 100%;transform-origin:0 100% 0;animation-name:move;animation-timing-function:linear;animation-iteration-count:infinite;}
+@keyframes move{0%{transform:translate(-175px,0px) scale(1,1)}50%{transform:translate(-87px,0px) scale(1,0.5)}100%{transform:translate(0px,0px) scale(1,1)}}
+#waveHorizontal2{-webkit-mask:url(https://blog.ainiok.com/images/svg/augsc_02.svg);mask:url(https://blog.ainiok.com/images/svg/augsc_02.svgg);animation-delay:-2s;animation-duration:5s;}
+#waveHorizontal3{-webkit-mask:url(https://blog.ainiok.com/images/svg/augsc_03.svg);mask:url(https://blog.ainiok.com/images/svg/augsc_03.svg);animation-delay:-1s;animation-duration:3s;}
