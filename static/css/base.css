@@ -428,7 +428,7 @@ margin: auto }
 
 /* footer */
 .waveHorizontals{width:100%;height:20px;position:relative;overflow:hidden;z-index:1;background-color:#fff !important}
-.waveHorizontals{width:100%;height:20px;position:relative;overflow:hidden;z-index:1;background-color:#181616 !important}
+.waveHorizontals{width:100%;height:20px;position:relative;overflow:hidden;z-index:1;background-color:#373D41 !important}
 #waveHorizontal1{-webkit-mask:url(https://blog.ainiok.com/images/svg/augsc_01.svg);mask:url(https://blog.ainiok.com/images/svg/augsc_01.svg);animation-delay:-2s;animation-duration:12s;}
 #waveHorizontal1,#waveHorizontal2,#waveHorizontal3{background-image:linear-gradient(20deg,#f84270 0,#fe803b 100%)!important;}
 #waveHorizontal1{background-color:#f1f1f1!important;}
