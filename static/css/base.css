@@ -47,9 +47,6 @@ nav { float: left; height: 50px; line-height: 50px; text-align: center; }
 #starlist ul.sub li a { color: #FFF }
 #starlist ul.sub li a:hover { color: #00c1de }
 #starlist li:hover ul.sub { display: block }
-/*箭头*/
-.menu:before { position: absolute; content: ""; top: 22px; right: 5px; background: url(../images/jt.png) no-repeat; width: 8px; height: 8px; -ms-transition: all .5s ease; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; -o-transition: all .5s ease; transition: all .5s ease; }
-.menu:hover:before { transform: rotate(180deg) }/*旋转*/
 #mnavh { display: none; margin: 5px 0 0 0; width: 24px; height: 40px; float: right; text-align: center; padding: 0 10px; }
 .navicon { display: block; position: relative; width: 30px; height: 5px; background-color: #fff; margin-top: 20px; }
 .navicon:before, .navicon:after { content: ''; display: block; width: 30px; height: 5px; position: absolute; background: #fff; -webkit-transition-property: margin, -webkit-transform; transition-property: margin, -webkit-transform; transition-property: margin, transform; transition-property: margin, transform, -webkit-transform; -webkit-transition-duration: 300ms; transition-duration: 300ms; }
@@ -75,15 +72,6 @@ nav { float: left; height: 50px; line-height: 50px; text-align: center; }
 /*banner*/
 .banbox { width: 68.5%; overflow: hidden; float: left; border-radius: 3px; margin-bottom: 20px }
 .banner { width: 100%; overflow: hidden; float: left; }
-.fader { position: relative; width: 100%; height: 260px; /*padding-top: 50%;*/ font-family: "futura", arial; overflow: hidden; }
-.fader .slide { position: absolute; width: 100%; top: 0; z-index: 1; opacity: 0; }
-.fader .slide img { width: 100%; height: 260px; margin: auto; }
-.fader .prev, .fader .next { position: absolute; height: 32px; line-height: 32px; width: 40px; top: 50%; left: 50px; z-index: 4; margin-top: -25px; cursor: pointer; opacity: 0; transition: all 150ms; }
-.fader .prev { background: url(./../images/left.png) no-repeat }
-.fader .next { left: auto; right: 50px; background: url(../images/right.png) no-repeat }
-.fader .pager_list { position: absolute; width: 100%; height: 26px; padding: 0; line-height: 40px; bottom: 0; text-align: center; z-index: 4; }
-.fader .pager_list li { border-radius: 10px; display: inline-block; width: 10px; height: 10px; margin: 0 7px; background: #fff; opacity: .9; text-indent: -9999px; cursor: pointer; transition: all 150ms; }
-.fader .pager_list li:hover, .fader .pager_list li.active { opacity: 1; background: #12b7de; }
 .banner:hover .fader_controls .page.prev { opacity: .7; left: 20px }
 .banner:hover .fader_controls .page.next { opacity: .7; right: 20px }
 /*headline*/
@@ -183,12 +171,8 @@ a.viewmore { display: block; right: 10px; bottom: 20px; position: absolute; padd
 .linkmore { margin: 15px }
 .linkmore li { width: 25%; float: left }
 .linkmore li i { font-size: 39px}
-.linkmore li a { height: 53px; display: block; overflow: hidden; inset 0px 1px 1px rgba(0,0,0,.7); border-radius: 50%; margin: 0 5px; }
+.linkmore li a { height: 53px; display: block; overflow: hidden; border-radius: 50%; margin: 0 5px; }
 .linkmore li a:hover { opacity: 0.5; }
-a.iconfont.icon-zhuye {color: #ef5509;font-size: 36px;background: url(../images/c01.png) no-repeat center ;}
-a.iconfont.icon-youxiang { color: #FF991A; font-size: 28px;    background: url(../images/c02.png) no-repeat center ; }
-a.iconfont.icon--- { color: #1296DB;    background: url(../images/c03.png) no-repeat center; }
-a.iconfont.icon-weixin { color: #07AF12;    background: url(../images/c04.png) no-repeat center; }
 #weixin { position: relative }
 #weixin span { display: block; position: absolute; bottom: 55px; right: 0 }
 #weixin span img { height: 100px; display: none }
@@ -310,7 +294,6 @@ daohang.html
 about
 
 */
-.about { overflow: hidden; background: url(../images/abbg.png) no-repeat right top #fff; padding: 20px 40px }
 .ab_box { overflow: hidden; margin: 20px 0; }
 .ab_box h3 { margin: 10px 0 10px; font-size: 18px; }
 .ab_box p { color: #666; margin-bottom: 5px }
@@ -320,7 +303,6 @@ about
 .ab_dubai { margin-bottom: 15px; display: inline-block; }
 .ly_button { float: right; width: 100px; background: #000; text-align: center; border-radius: 3px; line-height: 30px }
 .ly_button a { color: #FFF }
-.gd_title { margin: 20px 0; font-size: 18px; background: url(../images/hline.png) no-repeat bottom right; width: 120px; clear: both; background-size: 40px; border-bottom: #000 1px dashed; padding-left: 10px; padding-bottom: 5px; display: inline-block; }
 .xinlu li { width: 25%; float: left; overflow: hidden; margin-bottom: 20px }
 .xinlu li a { display: block; margin: 0 10px; background: #f3f3f3; padding: 20px; }
 .xinlu li i { display: block; overflow: hidden; height: 120px; margin-bottom: 10px }
@@ -342,11 +324,7 @@ about
 .qq_join li img { width: 90%; margin: auto; background: -webkit-linear-gradient(bottom left, rgba(0,153,255,.9), rgba(42,228,197,.7)); background: -o-linear-gradient(bottom left, rgba(0,153,255,.9), rgba(42,228,197,.7)); background: linear-gradient(to top right, rgba(0,153,255,.9), rgba(42,228,197,.7)); display: block; padding: 5px; }
 .qq_join li p { margin: 10px; }
 .qq_join li b { color: #019881; margin: 0 5px; }
-/*
-	
-	info.html
-	
-*/
+/*	info.html */
 .con_tilte { font-size: 22px; margin-top: 20px }
 .con_nav { float: right; font-size: 14px; color: #666 }
 .con_nav a { color: #666 }
@@ -357,7 +335,7 @@ about
 .con_text a { color: #09C;word-break: break-all; }
 .con_text a:hover { text-decoration: underline }
 .con_text p { margin: 15px 0; }
-.con_text img { display: block; max-width: 100% !important; height:!important;
+.con_text img { display: block; max-width: 100% !important; height:auto!important;
 margin: auto }
 .price_info ul { padding-top: 15px; position: relative; overflow: hidden }
 .price_info p { margin-bottom: 5px }

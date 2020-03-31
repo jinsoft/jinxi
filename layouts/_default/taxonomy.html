@@ -25,7 +25,7 @@
                         <span>{{ .Date.Year }}年{{ printf "%d" .Date.Month }}月{{ .Date.Day }}日</span>
                         <span>
                             {{ with .Params.Categories }}
-                            【<a href="{{ "/categories/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>】
+                            <a href="{{ "/categories/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>
                             {{ end }}
                         </span>
                     </p>
