@@ -119,7 +119,7 @@
                     <span>{{ .Date.Year }}-{{ printf "%d" .Date.Month }}-{{ .Date.Day }}</span>
                     <span>
                         {{ with .Params.Categories }}
-                                <span class="meta-category"><a href="{{ "/categories/" | absLangURL }}{{ . | urlize }}">【{{ . }}】</a></span>
+                                <span class="meta-category"><a href="{{ "/categories/" | absLangURL }}{{ . | urlize }}">{{ . }}</a></span>
                         {{ end }}
                     </span>
                     {{ if .Site.Params.busuanzi }}

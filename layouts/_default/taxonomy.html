@@ -7,7 +7,7 @@
         <div class="whitebg bloglist">
             <h2 class="ct-title">
                 {{ if eq .Data.Singular "category" }}
-                类别属于【<span class="keyword">{{ .Data.Term }}</span>】的文章
+                类别属于<span class="keyword">{{ .Data.Term }}</span>的文章
                 {{ else if eq .Data.Singular "tag" }}
                 包含标签<span class="keyword">{{ .Data.Term }}</span>的文章
                 {{ end }}
