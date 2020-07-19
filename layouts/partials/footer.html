@@ -22,6 +22,12 @@
                 <i class="layui-icon layui-icon-friends" style="color:#009E94;"></i><span class="busuanzi-value" id="busuanzi_value_site_uv">9999</span>
                 <i class="layui-icon layui-icon-log" style="color:#009E94;"></i><span class="busuanzi-value" id="busuanzi_value_site_pv">9999</span>
             </p>
+            {{ if .Site.Params.upyun }}
+            <p style="text-align: center">本网站由
+                <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">
+                <img src="{{ "images/upyun_logo.png" | relURL }}" alt="" style="height:50px;display:inline"></a> 提供CDN加速/云存储服务
+            </p>
+            {{ end }}
         </div>
     </div>
 </footer>
