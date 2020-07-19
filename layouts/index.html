@@ -22,6 +22,7 @@
                             <a href="{{ "/categories/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>
                             {{ end }}
                         </span>
+                        <span>字数 {{ .WordCount }}</span>
                     </p>
                     <a href="{{ .Permalink }}" class="viewmore">阅读更多</a>
                 </li>

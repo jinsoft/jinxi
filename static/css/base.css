@@ -416,3 +416,8 @@ margin: auto }
 @keyframes move{0%{transform:translate(-175px,0px) scale(1,1)}50%{transform:translate(-87px,0px) scale(1,0.5)}100%{transform:translate(0px,0px) scale(1,1)}}
 #waveHorizontal2{-webkit-mask:url(https://blog.ainiok.com/images/svg/augsc_02.svg);mask:url(https://blog.ainiok.com/images/svg/augsc_02.svgg);animation-delay:-2s;animation-duration:5s;}
 #waveHorizontal3{-webkit-mask:url(https://blog.ainiok.com/images/svg/augsc_03.svg);mask:url(https://blog.ainiok.com/images/svg/augsc_03.svg);animation-delay:-1s;animation-duration:3s;}
+
+/* 表格样式处理*/
+table td,table th {min-height: 20px;line-height: 20px; min-width: 60px;}
+table thead tr th {border: 1px solid #e6e6e6;background-color: #F2F2F2;}
+table tbody tr td {border: 1px solid #e6e6e6;}
